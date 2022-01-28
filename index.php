@@ -12,7 +12,14 @@ $token = $_ENV["TOKEN"];
 
 
 $discord = new Discord([
-    'token' => 'OTM2NTAwNDc5ODcyMDkwMTQy.YfOGCQ.2mBJewzeMnpoMWvNfs8AwjnVuvk',
+    'token' => $token,
 ]);
+
+$discord->on('on', function($discord) {
+	echo "Bot is ready";
+	$discord->on('message', function ($message, $discord) {
+		echo "Testing";
+	});
+});
 
 $discord->run();
